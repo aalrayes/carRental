@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Fuel, Engine, Doors, Type } from "../enums/carEnums";
 import engineLogo from "../assets/icons/icons8-engine-50.png";
 import doorLogo from "../assets/icons/icons8-car-door-50.png";
 import gasLogo from "../assets/icons/icons8-fuel-50.png";
 import kmLogo from "../assets/icons/icons8-meter-50.png";
+import carContext from "../context/CarContext";
 import { Link } from "react-router-dom";
 //import PropTypes from "prop-types";
 
@@ -41,12 +42,8 @@ export default function Car({
   type,
   fuel,
   price,
-  handelCarDetails,
 }: any) {
-  const sendCarData = () => {
-    handelCarDetails(id);
-  };
-
+  const context = useContext(carContext);
   return (
     <article className="mx-auto mb-7 flex w-80 transform  flex-col justify-between rounded-3xl border  border-gray-200  bg-white p-5 font-sans  drop-shadow-md transition-transform duration-500 hover:-translate-y-2">
       <div className="flex flex-col">
@@ -100,13 +97,11 @@ export default function Car({
             <span>{`$${price}0`}</span>
             <span className="-mt-1 text-xs text-gray-400">{" per day"}</span>
           </div>
-
-          <button
-            onClick={sendCarData}
-            className="mt-4 h-9 w-28 rounded bg-red-400 text-center text-sm text-white hover:bg-red-500"
-          >
-            Details
-          </button>
+          <Link to={`/car/${id}`}>
+            <button className="mt-4 h-9 w-28 rounded bg-red-400 text-center text-sm text-white hover:bg-red-500">
+              Details
+            </button>
+          </Link>
         </div>
       </div>
     </article>

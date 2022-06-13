@@ -1,5 +1,29 @@
 import React, { createContext } from "react";
 
-const carContext = createContext({});
+type Car = {
+  id: number;
+  make: string;
+  model: string;
+  year: number;
+  kmTraveled: number;
+  latitude: number;
+  longitude: number;
+  images: string;
+  AvailableFrom: string;
+  AvailableUntil: string;
+  doors: string;
+  engine: string;
+  type: string;
+  fuel: string;
+  price: number;
+};
+type Context = {
+  getCar<T>(id: T): Object;
+};
+const CarContext = createContext<Context>({
+  getCar: () => {
+    return {};
+  },
+});
 
-export default carContext;
+export default CarContext;

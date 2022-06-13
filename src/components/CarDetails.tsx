@@ -1,12 +1,17 @@
-import React from "react";
-
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import carContext from "../context/CarContext";
+import { Navigate } from "react-router-dom";
 export default function CarDetails() {
+  const { getCar } = useContext(carContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const params = useParams();
+  const car = getCar(params.id);
+  console.log(car);
+
   return (
     <section className="h- mx-auto w-full">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSddflulvnY1sM74iww7XOzZqZmb6mF7xkYmA&usqp=CAU"
-        alt=""
-      />
+      {isLoading && <h1>Loading ......</h1>}
     </section>
   );
 }

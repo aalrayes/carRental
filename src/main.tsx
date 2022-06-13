@@ -7,16 +7,12 @@ import Footer from "./components/layout/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import NotFound from "./components/layout/NotFound";
-
+import CarContext from "./context/CarContext";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <React.StrictMode>
       <Nav />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/details" element={<CarDetails />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <App />
       <Footer />
     </React.StrictMode>
   </BrowserRouter>

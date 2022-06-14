@@ -4,17 +4,13 @@ import { SpinnerCircular } from "spinners-react";
 export default function CarList({ cars, isLoading }: any) {
   const renderCars = (): ReactNode => {
     return cars.map((car: any, index: number) => {
-      if (index > 19) {
-        return <Car key={car.id} {...car} />;
-      }
+      return <Car key={car.id} {...car} />;
     });
   };
 
   return (
     <section className="flex flex-col">
-      <h1 className="mb-6 ml-10 font-sans font-bold text-gray-700">
-        Cars in a 50km radius from you
-      </h1>
+      <h1 className="ml-14 mb-6 font-sans font-bold text-slate-500">results</h1>
       {isLoading && (
         <SpinnerCircular
           className="mx-auto mt-52"
@@ -22,7 +18,7 @@ export default function CarList({ cars, isLoading }: any) {
           size={"70px"}
         />
       )}
-      <div className="flex w-11/12 flex-wrap">{renderCars()}</div>
+      <div className="mx-auto flex w-full flex-wrap gap-5">{renderCars()}</div>
     </section>
   );
 }

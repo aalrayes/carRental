@@ -10,6 +10,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     async function getCars() {
+      window.scrollTo(0, 0);
       setIsLoading(true);
       const res = await fetch("http://localhost:8080/cars/index");
       const data = await res.json();

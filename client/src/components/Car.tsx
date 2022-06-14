@@ -44,7 +44,7 @@ export default function Car({
 }: any) {
   const context = useContext(carContext);
   return (
-    <article className="mx-auto mb-7 flex w-80 transform  flex-col justify-between rounded-3xl border  border-gray-200  bg-white p-5 font-sans  drop-shadow-md transition-transform duration-500 hover:-translate-y-2">
+    <article className=" flex w-80 transform flex-col rounded-3xl border border-gray-200 bg-white p-5 font-sans drop-shadow-md transition-transform duration-500 hover:-translate-y-2">
       <div className="flex flex-col">
         {/* image*/}
         <img
@@ -60,7 +60,7 @@ export default function Car({
           <div className="mt-2 text-xs font-bold text-neutral-500">
             Features
           </div>
-          <div className="my-1 ml-2 mt-3 flex w-full flex-wrap gap-y-2 text-xs">
+          <div className="my-1 ml-0 mt-3 flex w-full flex-wrap gap-y-2 text-xs">
             <div className="flex w-1/2 justify-start">
               <div className="font-bold">
                 <img src={kmLogo} width={"25px"} alt="km icon" />{" "}
@@ -87,8 +87,8 @@ export default function Car({
           style={{ fontSize: "13px" }}
           className="mx-auto mb-1 flex justify-between px-5 py-2 font-bold text-white "
         >
-          <span className=" rounded bg-red-400 p-2 text-center">{`${AvailableFrom}`}</span>
-          <span className=" rounded bg-red-400 p-2 text-center">{`${AvailableFrom}`}</span>
+          {/* <span className=" rounded bg-red-400 p-2 text-center">{`${AvailableFrom}`}</span>
+          <span className=" rounded bg-red-400 p-2 text-center">{`${AvailableFrom}`}</span> */}
         </div>
         {/* pricing and details section*/}
         <div className="mt-3 flex w-full justify-evenly border-t px-3">

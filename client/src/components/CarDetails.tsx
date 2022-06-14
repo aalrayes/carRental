@@ -6,12 +6,19 @@ import kmIcon from "../assets/icons/icons8-meter-50.png";
 import fuelIcon from "../assets/icons/icons8-fuel-50.png";
 import doorIcon from "../assets/icons/icons8-car-door-50.png";
 import { SpinnerCircular } from "spinners-react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 export default function CarDetails() {
   const { getCar } = useContext(carContext);
   const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
   const car = getCar(params.id);
-
+  const [value, onChange] = useState(new Date());
+  const availableFromDate = new Date(car.availableFrom);
+  const availableUntilDate = new Date(car.availableUntil);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section className=" mx-auto w-full">
       {isLoading && (
@@ -21,14 +28,26 @@ export default function CarDetails() {
           size={"70px"}
         />
       )}
-      <article className="mx-auto mb-7 flex w-3/4 transform  justify-between rounded-3xl border  border-gray-200  bg-white p-5 font-sans  drop-shadow-md transition-transform duration-500 hover:-translate-y-2">
+
+      <Calendar
+        onChange={onChange}
+        value={value}
+        minDate={availableFromDate}
+        selectRange={true}
+        tileClassName={"hover:bg-red-400 bg-green-300"}
+        maxDate={availableUntilDate}
+      />
+
+      <article className="mx-auto mb-7 flex w-3/4 transform flex-col  justify-between rounded-3xl border  border-gray-200  bg-white p-5 font-sans  drop-shadow-md transition-transform duration-500 hover:-translate-y-2">
         <div className="flex flex-col ">
           {/* image*/}
+
           <img
             className="  rounded-md rounded-b-none object-fill"
             src={car.images}
             alt={`${car.make} ${car.model}`}
           />
+
           <div className="mx-auto w-full pl-2 pt-5 text-left ">
             {/* name*/}
             <span className="text-xl font-bold text-black">{`${car.model} ${car.make}  ${car.year}`}</span>
@@ -63,7 +82,7 @@ export default function CarDetails() {
             style={{ fontSize: "13px" }}
             className="mx-auto mb-1 flex justify-between px-5 py-2 font-bold text-white "
           >
-            <span className=" rounded bg-red-400 p-2 text-center">{`${car.availableFrom}`}</span>
+            <span className=" rounded bg-red-400 p-2 text-center">{`${availableFromDate.getHours()}`}</span>
             <span className=" rounded bg-red-400 p-2 text-center">{`${car.availableUntil}`}</span>
           </div>
           {/* pricing and details section*/}

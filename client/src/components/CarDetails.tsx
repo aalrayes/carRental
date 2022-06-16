@@ -42,7 +42,7 @@ export default function CarDetails() {
     async function getCarFromServer() {
       window.scrollTo(0, 0);
       setIsLoading(true);
-      const res = await fetch(`http://localhost:8080/cars/${params.id}`);
+      const res = await fetch(`http://localhost:8080/api/v1/cars/${params.id}`);
       if (res.status == 404) {
         navigate("/NotFound");
       }

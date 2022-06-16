@@ -12,7 +12,7 @@ function App() {
     async function getCars() {
       window.scrollTo(0, 0);
       setIsLoading(true);
-      const res = await fetch("http://localhost:8080/cars/index");
+      const res = await fetch("http://localhost:8080/api/v1/cars");
       const data = await res.json();
       setCars(data);
       setIsLoading(false);

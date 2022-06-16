@@ -1,4 +1,4 @@
-class CarsController < ApplicationController
+class Api::V1::CarsController < ApplicationController
     def index
        @cars = Car.all
        respond_to do |format|

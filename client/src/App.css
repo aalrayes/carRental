@@ -8,3 +8,7 @@ html {
 * {
   box-sizing: border-box;
 }
+
+.calender {
+  background-color: lavender;
+}

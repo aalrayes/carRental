@@ -9,8 +9,10 @@ export default function CarList({ cars, isLoading }: any) {
   };
 
   return (
-    <section className="flex flex-col">
-      <h1 className="ml-14 mb-6 font-sans font-bold text-slate-500">results</h1>
+    <section className="flex w-full flex-col">
+      <h1 className="ml-0 mb-6 font-sans font-bold text-zinc-400">
+        Cars in a 50 km radius{" "}
+      </h1>
       {isLoading && (
         <SpinnerCircular
           className="mx-auto mt-52"
@@ -18,7 +20,9 @@ export default function CarList({ cars, isLoading }: any) {
           size={"70px"}
         />
       )}
-      <div className="mx-auto flex w-full flex-wrap gap-5">{renderCars()}</div>
+      <div className="mx-auto mb-20 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {renderCars()}
+      </div>
     </section>
   );
 }

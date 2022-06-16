@@ -21,7 +21,7 @@ type Context = {
   getCar<T>(id: T): any;
 };
 const CarContext = createContext<Context>({
-  getCar: () => {
+  getCar: (id) => {
     return {};
   },
 });

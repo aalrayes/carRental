@@ -38,7 +38,7 @@ function App() {
             path="/"
             element={<CarList cars={cars} isLoading={isLoading} />}
           />
-          <Route path="/car/:id" element={<CarDetails />} />
+          <Route path="/cars/:id" element={<CarDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

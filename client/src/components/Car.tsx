@@ -44,7 +44,7 @@ export default function Car({
 }: any) {
   const context = useContext(carContext);
   return (
-    <article className=" flex w-80 transform flex-col rounded-3xl border border-gray-200 bg-white p-5 font-sans drop-shadow-md transition-transform duration-500 hover:-translate-y-2">
+    <article className=" flex w-96 transform flex-col rounded-3xl border border-gray-200 bg-white p-5 font-sans drop-shadow-md transition-transform duration-500 hover:-translate-y-2">
       <div className="flex flex-col">
         {/* image*/}
         <img
@@ -96,7 +96,7 @@ export default function Car({
             <span>{`$${price}0`}</span>
             <span className="-mt-1 text-xs text-gray-400">{" per day"}</span>
           </div>
-          <Link to={`/car/${id}`}>
+          <Link to={`/cars/${id}`}>
             <button className="mt-4 h-9 w-28 rounded bg-red-400 text-center text-sm text-white hover:bg-red-500">
               Details
             </button>

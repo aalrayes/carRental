@@ -2,12 +2,12 @@
   "name": "ejaro-parody",
   "private": true,
   "version": "0.0.0",
-   "engines": {
+  "engines": {
     "node": "16.13.1"
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "cd client tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

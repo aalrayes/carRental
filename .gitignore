@@ -21,19 +21,27 @@ dist-ssr
 *.rbc
 capybara-*.html
 .rspec
-server/db/*.sqlite3
-server/db/*.sqlite3-journal
-server/db/*.sqlite3-[0-9]*
-server/public/system
-server/coverage/
-server/spec/tmp
+
+/db/*.sqlite3
+
+/db/*.sqlite3-journal
+
+/db/*.sqlite3-[0-9]*
+
+/public/system
+
+/coverage/
+
+/spec/tmp
 *.orig
 rerun.txt
 pickle-email-*.html
 
 # Ignore all logfiles and tempfiles.
-server/log/*
-server/tmp/*
+
+/log/*
+
+/tmp/*
 !/log/.keep
 !/tmp/.keep
 
@@ -46,47 +54,51 @@ config/master.key
 
 # dotenv, dotenv-rails
 # TODO Comment out these rules if environment variables can be committed
-server/.env
-server/.env*.local
+
+/.env
+
+/.env*.local
 
 ## Environment normalization:
-server/.bundle
-server/vendor/bundle
+
+/.bundle
+
+/vendor/bundle
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-server/.rvmrc
+/.rvmrc
 
 # if using bower-rails ignore default bower_components path bower.json files
-server/vendor/assets/bower_components
-server/*.bowerrc
-server/bower.json
+/vendor/assets/bower_components
+/*.bowerrc
+/bower.json
 
 # Ignore pow environment settings
-server/.powenv
+/.powenv
 
 # Ignore Byebug command history file.
-server/.byebug_history
+/.byebug_history
 
 # Ignore node_modules
 node_modules/
 
 # Ignore precompiled javascript packs
-server/public/packs
-server/public/packs-test
-server/public/assets
+/public/packs
+/public/packs-test
+/public/assets
 
 # Ignore yarn files
-server/yarn-error.log
-server/yarn-debug.log*
-server/.yarn-integrity
+/yarn-error.log
+/yarn-debug.log*
+/.yarn-integrity
 
 # Ignore uploaded files in development
-server/storage/*
-server/!/storage/.keep
-server/public/uploads
+/storage/*
+/!/storage/.keep
+/public/uploads
 
 # Editor directories and files
 .vscode/*

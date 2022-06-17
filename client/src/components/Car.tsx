@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import engineLogo from "../assets/icons/icons8-engine-50.png";
-import doorLogo from "../assets/icons/icons8-car-door-50.png";
-import gasLogo from "../assets/icons/icons8-fuel-50.png";
-import kmLogo from "../assets/icons/icons8-meter-50.png";
-import carContext from "../context/CarContext";
+import engineIcon from "../assets/icons/icons8-engine-50.png";
+import doorIcon from "../assets/icons/icons8-car-door-50.png";
+import gasIcon from "../assets/icons/icons8-fuel-50.png";
+import kmIcon from "../assets/icons/icons8-meter-50.png";
 import { Link } from "react-router-dom";
+import CarFeature from "./CarFeatures";
 //import PropTypes from "prop-types";
 
 type Car = {
@@ -42,9 +42,14 @@ export default function Car({
   fuel,
   price,
 }: any) {
-  const context = useContext(carContext);
+  const features = {
+    engine: engine,
+    kmTraveled: kmTraveled,
+    doors: doors,
+    fuel: fuel,
+  };
   return (
-    <article className=" flex w-96 transform flex-col rounded-3xl border border-gray-200 bg-white p-5 font-sans drop-shadow-md transition-transform duration-500 hover:-translate-y-2">
+    <article className=" mx-auto flex w-96 transform flex-col rounded-3xl border border-gray-200 bg-white p-5 font-sans drop-shadow-md transition-transform duration-500 hover:-translate-y-2">
       <div className="flex flex-col">
         {/* image*/}
         <img
@@ -60,41 +65,18 @@ export default function Car({
           <div className="mt-2 text-xs font-bold text-neutral-500">
             Features
           </div>
-          <div className="my-1 ml-0 mt-3 flex w-full flex-wrap gap-y-2 text-xs">
-            <div className="flex w-1/2 justify-start">
-              <div className="font-bold">
-                <img src={kmLogo} width={"25px"} alt="km icon" />{" "}
-              </div>
-              <span className="my-auto ml-1">{kmTraveled + "km"}</span>
-            </div>
-
-            <div className="flex w-1/2 justify-start">
-              <img src={engineLogo} width={"25px"} alt="km icon" />{" "}
-              <span className="my-auto ml-2">{engine}</span>
-            </div>
-
-            <div className="flex w-1/2 justify-start">
-              <img src={doorLogo} width={"25px"} alt="km icon" />
-              <span className="my-auto ml-2">{`${doors}-doors`}</span>
-            </div>
-            <div className="flex  justify-start">
-              <img src={gasLogo} width={"25px"} alt="km icon" />{" "}
-              <span className="my-auto ml-2 font-normal">{fuel}</span>
-            </div>
-          </div>
+          <CarFeature data={features} />
         </div>
+
         <div
           style={{ fontSize: "13px" }}
           className="mx-auto mb-1 flex justify-between px-5 py-2 font-bold text-white "
-        >
-          {/* <span className=" rounded bg-red-400 p-2 text-center">{`${AvailableFrom}`}</span>
-          <span className=" rounded bg-red-400 p-2 text-center">{`${AvailableFrom}`}</span> */}
-        </div>
+        ></div>
         {/* pricing and details section*/}
         <div className="mt-3 flex w-full justify-evenly border-t px-3">
           <div className="flex w-full flex-col rounded pt-3 text-left text-xl font-bold">
             <span>{`$${price}0`}</span>
-            <span className="-mt-1 text-xs text-gray-400">{" per day"}</span>
+            <span className="-mt-1 text-xs text-gray-400">{" per week"}</span>
           </div>
           <Link to={`/cars/${id}`}>
             <button className="mt-4 h-9 w-28 rounded bg-red-400 text-center text-sm text-white hover:bg-red-500">

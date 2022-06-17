@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import NotFound404 from "../../assets/notFound404.svg";
 export default function NotFound() {
+  useEffect(() => {
+    document.title = "Page not Found";
+  }, []);
   return (
     <section className="mx-auto flex h-screen w-full flex-col">
       <img className="mx-auto" src={NotFound404} width={"500px"} alt="" />

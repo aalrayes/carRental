@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { SpinnerCircular } from "spinners-react";
 import { useQuery } from "react-query";
@@ -22,6 +22,10 @@ export default function CarDetails() {
   const [endDate, setEndDate] = useState(null);
   const imgArray = data?.images;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const genSlides = () => {
     return imgArray.map((img) => {
       return (
@@ -31,7 +35,6 @@ export default function CarDetails() {
             src={img}
             alt={`${data?.make} ${data?.model}`}
           />
-          ;
         </div>
       );
     });
@@ -91,11 +94,11 @@ export default function CarDetails() {
       <article className="mx-auto mb-20 flex w-fit transform flex-col justify-between rounded-3xl border  border-gray-200  bg-white p-5 font-sans  drop-shadow-md  ">
         {/* image*/}
 
-        <Carousel className="mx-auto bg-gray-100" width="800px">
+        <Carousel className="mx-auto bg-gray-100" max-width="1000px">
           {genSlides()}
         </Carousel>
 
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
           <div className="mx-auto w-full pl-2 pt-5 text-left ">
             {/* name*/}
             <span className="text-xl font-bold text-black">{`${data?.model} ${data?.make}  ${data?.year}`}</span>

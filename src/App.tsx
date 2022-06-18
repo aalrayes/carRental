@@ -10,7 +10,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Ejaro";
   }, []);
   const queryClient = new QueryClient();
   return (

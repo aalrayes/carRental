@@ -26,7 +26,7 @@ export default function CarList() {
   }
   return (
     <section className="flex w-full flex-col">
-      <h1 className="ml-0 mb-6 font-sans font-bold text-zinc-400">
+      <h1 className="mx-auto mb-6 font-sans font-bold text-zinc-400 lg:ml-5">
         Cars in a 50 km radius
       </h1>
       <div className="mx-auto mb-20 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

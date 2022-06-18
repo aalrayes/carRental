@@ -54,7 +54,7 @@ export default function Car({
         {/* image*/}
         <img
           className=" rounded-md rounded-b-none object-fill"
-          src={images}
+          src={images[0]}
           alt={`${make} ${model}`}
         />
         <div className="mx-auto w-full pl-2 pt-5 text-left ">
@@ -75,7 +75,7 @@ export default function Car({
         {/* pricing and details section*/}
         <div className="mt-3 flex w-full justify-evenly border-t px-3">
           <div className="flex w-full flex-col rounded pt-3 text-left text-xl font-bold">
-            <span>{`$${price}0`}</span>
+            <span>{`$${price}`}</span>
             <span className="-mt-1 text-xs text-gray-400">{" per week"}</span>
           </div>
           <Link to={`/cars/${id}`}>

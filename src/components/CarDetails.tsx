@@ -20,7 +20,24 @@ export default function CarDetails() {
   const toDate = new Date(data?.availableUntil).toDateString();
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState(null);
+  const imgArray = data?.images;
 
+  const genSlides = () => {
+    return imgArray.map((img) => {
+      return (
+        <div>
+          <img
+            className=" mx-auto w-72 rounded-md rounded-b-none object-fill"
+            src={img}
+            alt={`${data?.make} ${data?.model}`}
+          />
+          ;
+        </div>
+      );
+    });
+  };
+
+  console.log(imgArray);
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -75,20 +92,7 @@ export default function CarDetails() {
         {/* image*/}
 
         <Carousel className="mx-auto bg-gray-100" width="800px">
-          <div>
-            <img
-              className=" mx-auto w-72 rounded-md rounded-b-none object-fill"
-              src={data?.images}
-              alt={`${data?.make} ${data?.model}`}
-            />
-          </div>
-          <div>
-            <img
-              className=" mx-auto w-72 rounded-md rounded-b-none object-fill"
-              src={data?.images}
-              alt={`${data?.make} ${data?.model}`}
-            />
-          </div>
+          {genSlides()}
         </Carousel>
 
         <div className="flex">
@@ -101,7 +105,7 @@ export default function CarDetails() {
             </div>
             <CarFeature data={features} />
             <div className="mx-auto mt-7  flex w-full flex-col rounded bg-slate-200 px-20 py-4 pt-3 text-xl font-bold">
-              <span className="mx-auto ">{`${data?.price}0`}</span>
+              <span className="mx-auto ">{`$${data?.price}`}</span>
               <span className="mx-auto text-xs text-gray-500">
                 {" per week"}
               </span>
